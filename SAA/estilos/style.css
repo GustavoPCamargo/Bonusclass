@@ -38,6 +38,10 @@ main{
 
 .container{
     text-align: center;
+    background-color: antiquewhite;
+    width: 40%;
+    height: 50%;
+    padding: 20px;
 }
 
 footer{
