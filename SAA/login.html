@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BonusClass - Login</title>
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_book" />
 </head>
 <body>
     <header>
-        <div class="adad"></div>
+        <h1>
+            BÔNUSCLASS
+        </h1>
+        <ul>
+            <li><a href="aluno.html">Home</a></li>
+            <li><a href="prof.html">prof</a></li>
+            <li><a href="admin.html">admin</a></li>
+        </ul>
     </header>
     <main>
         <div class="container">
+                <span class="material-symbols-outlined">
+                menu_book
+                </span>
             <h1>
                 LOGIN
             </h1>
@@ -21,11 +32,11 @@
             </p>
             <br>
             <form action="">
-                <label for="cpf">CPF:</label> <br>
-                <input type="number" maxlength="11" style="width: 35%;"required> <br>
+                <label for="cpf">Usuario:</label> <br>
+                <input type="number" maxlength="11" required placeholder="Digite seu CPF"> <br>
                 <br>
                 <label for="Senha">Senha:</label> <br>  
-                <input type="password" style="width: 35%;" required>
+                <input type="password" required placeholder="Digite sua senha">
                 <br><br>
                 <input type="submit" value="Entrar" class="enviar">
             </form>
