@@ -5,35 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de início</title>
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/stylealuno.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu_book" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=logout" />
 </head>
 <body>
     <header>
         <div class="header_info">
-            <h3>Bonus Class</h3>
+        <span class="material-symbols-outlined"> menu_book </span>
+            <h1>Bonus Class</h1>
             <p>Aluno</p>
         </div>
 
         <div class="header_user">
             <p>João Silva</p>
+            <span class="material-symbols-outlined"> logout </span>
         </div>
     </header>
-    <hr>
     <main>
-        <section class="bem-vindo">
-            <h1>Bem-vindo, João Silva!</h1>
-            <p>Data da aula bônus: sexta-feira,10 de abril</p>
-        </section>
-        <section class="container">
-            <h4>O que você deseja fazer?</h4>
-            <p>Escolha uma ação para sua aula bônus.</p>
-
-            <div class="opçoes">
-                <button id="agendar">Agendar aula</button>
-                <button id="ajustar">Ajustar aula</button>
-                <button id="cancelar">Cancelar aula</button>
+        <div class="tudo">
+            <section class="bem-vindo">
+                <h1>Bem-vindo, João Silva!</h1>
+                <p>Data da aula bônus: sexta-feira,10 de abril</p>
+            </section>
+            <div class="container">
+                <h4>O que você deseja fazer?</h4>
+                <p>Escolha uma ação para sua aula bônus.</p>
+                <div class="opçoes">
+                    <button id="agendar">Agendar aula</button>
+                    <button id="ajustar">Ajustar aula</button>
+                    <button id="cancelar">Cancelar aula</button>
+                </div>
+                <p>Como você ainda não tem aula agendada, as opções de alterar e cancelar estão indisponíveis.</p>
             </div>
-            <p>Como você ainda não tem aula agendada, as opções de alterar e cancelar estão indisponíveis.</p>
-        </section>
+        </div>
     </main>
 
     

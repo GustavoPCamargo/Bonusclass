@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --cor-principal:  rgb(243, 247, 244);
+    --cor-destaque: rgb(55, 172, 99);
+    --cor-texto: rgb(0, 0, 0);
+    --cor-texto-destaque: rgb(46, 46, 46);
+    --card: rgb(255, 255, 255);
+}
+
+header{
+    display: flex;
+}
+
+header h1{
+    align-self: flex-start;
+}
+
+span.material-symbols-outlined{
+    color: var(--cor-destaque);
+}
+
+.container{
+    text-align: left;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.473);
+}
+
+.tudo{
+    width: max-content;
+    text-align: center;
+}
+
+.bem-vindo{
+    align-self: center;
+}
+
+#agendar{
+    width: 100%;
+    height: 50px;
+    color: black;
+    background-color: green;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+#agendar:hover{
+    background-color: rgba(0, 128, 0, 0.482);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#ajustar{
+    width: 100%;
+    height: 50px;
+    color: black;
+    background-color: yellow;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+#ajustar:hover{
+    background-color: rgba(255, 255, 0, 0.521);
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+#cancelar{
+    width: 100%;
+    height: 50px;
+    color: black;
+    background-color: red;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+#cancelar:hover{
+    background-color: rgba(255, 0, 0, 0.536);
+    cursor: pointer;
+    transition: 0.5s;
+}

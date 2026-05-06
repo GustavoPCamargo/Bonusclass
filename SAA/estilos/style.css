@@ -36,14 +36,18 @@ body{
 header{
     grid-row: 1 / 2;
     grid-column: 1 / -1;
-    background-color: var(--cor-destaque);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--card);
+    color: black;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    justify-content: space-between;
+    padding: 10px;
 }
 
+
+
 main{
+    display: grid;
     display: flex;
     grid-row: 2 / -2;
     grid-column: 2 / -2;
@@ -58,7 +62,7 @@ main{
     width: 40%;
     height: 50%;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 6px;
     min-height: fit-content;
 }
 
