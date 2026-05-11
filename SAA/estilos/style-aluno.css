@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
 :root{
     --cor-principal:  rgb(243, 247, 244);
     --cor-destaque: rgb(55, 172, 99);

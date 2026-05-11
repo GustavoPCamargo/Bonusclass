@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+:root{
+    --cor-principal:  rgb(243, 247, 244);
+    --cor-destaque: rgb(55, 172, 99);
+    --cor-texto: rgb(0, 0, 0);
+    --cor-texto-destaque: rgb(46, 46, 46);
+    --card: rgb(255, 255, 255);
+}
