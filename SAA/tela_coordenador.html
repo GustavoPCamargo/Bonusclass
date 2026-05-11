@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel</title>
-    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/stylecordenador.css">
 </head>
 <body>
-    <header class="hearder_coordenador">
-        <div>
+
+    <header>
+        <div class="logo-area">
             <h1>Bonus Class</h1>
             <p>Coordenador</p>
+            <img src="icone-livro.png" alt="icone do livro para indicar o painel de cordenador">
         </div>
 
-        <div class="coordenador_nome">
+        <div class="usuario-area">
             <p>Maria Souza</p>
+            <a href="login.html">
+                <img src="saida-icone.png" alt="icone de sair da conta">
+            </a>
         </div>
-        </header>
+    </header>
+
     <main>
-        <section class="container">
+        <section class="info-painel">
             <h1>Painel do Coordenador</h1>
             <p>Data da aula bônus: sexta-feira, 10 de abril</p>
-
-            <button class="enviar">Enviar lembrete aos alunos</button>
+            <button class="btn-enviar">Enviar lembrete aos alunos</button>
         </section>
 
-        <section class="tabela_1">
+        <section class="menu-tabelas">
             <nav>
                 <button>Agendamentos</button>
                 <button>Professores</button>
@@ -33,9 +38,8 @@
             </nav>
         </section>
 
-        <section class="tabela_2">
+        <section class="area-tabela">
             <h3>Agendamentos — 3 aula(s)</h3>
-
             <table>
                 <thead>
                     <tr>
@@ -48,7 +52,6 @@
                         <th>Sala</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr>
                         <td>08:00</td>
@@ -59,7 +62,6 @@
                         <td>Prof. Ana Costa</td>
                         <td>Sala 1</td>
                     </tr>
-
                     <tr>
                         <td>09:00</td>
                         <td>Mariana Santos</td>
@@ -69,7 +71,6 @@
                         <td>Prof. Lúcia García</td>
                         <td>Sala 2</td>
                     </tr>
-
                     <tr>
                         <td>14:00</td>
                         <td>Felipe Almeida</td>
@@ -83,6 +84,10 @@
             </table>
         </section>
     </main>
+
+    <footer>
+            <p>&copy; 2026 Bonus Class - Sistema de Gestão</p>
+    </footer>
 
 </body>
 </html>
