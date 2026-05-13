@@ -7,3 +7,25 @@
     --cor-texto-destaque: rgb(46, 46, 46);
     --card: rgb(255, 255, 255);
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 16px 10px;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+th {
+    color: #777;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}

@@ -8,12 +8,49 @@
     --card: rgb(255, 255, 255);
 }
 
-main{
-    width: 400px;
-    background-color: var(--card);
-    align-self: center;
-    justify-self: center;
+p{
+    color: var(--cor-texto-destaque);
+    margin: 10px;
 }
+
+.container{
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.473);
+    text-align: center;
+    width: 40%;
+    height: 50%;
+    padding: 30px;
+    border-radius: 8px;
+    min-height: fit-content;
+}
+
+.enviar {
+    background-color: rgb(55, 172, 99); 
+    color: white;
+    width: 85%;
+    padding: 1%; 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.enviar:hover {
+    background-color: rgb(48, 129, 250);
+    transition: 0.3s ease;
+}
+
+input{
+    padding: 5px;
+    width: 85%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2)  ;
+    border: none;
+    border-radius: 6px;
+}
+
+.container .icone{
+    width: 15%;
+    height: 25%;
+}
+
 
 
 img{
@@ -22,3 +59,11 @@ img{
     margin-top: 5px;
     padding: 6px;
 }
+
+@media screen and (max-width: 729px) {
+    .container {
+        width: 80%;
+        height: auto;
+    }
+    
+} 
