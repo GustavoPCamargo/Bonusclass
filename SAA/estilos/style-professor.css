@@ -30,6 +30,11 @@ td {
     color: #333;
 }
 
+main{
+    display: block;
+    width: 100%;
+}
+
 .container {
     text-align: center;
     padding: 40px 0 20px 0;
