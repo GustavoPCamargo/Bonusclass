@@ -29,3 +29,27 @@ td {
     font-size: 14px;
     color: #333;
 }
+
+.container {
+    text-align: center;
+    padding: 40px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tabela {
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin: 0 80px 40px 80px;
+}
+
+.badge {
+    background-color: #e6f4ec;
+    color: #2e7d4f;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
