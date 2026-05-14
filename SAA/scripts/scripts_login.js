@@ -31,9 +31,15 @@ async function login(event) {
         if (usuario) {
             if (usuario.tipo === "aluno") {
                 window.location.href = "tela_aluno.html"
+            } else if (usuario.tipo === "professor") {
+                window.location.href = "tela_professora.html"
+            } else if (usuario.tipo === "coordenador") {
+                window.location.href = "tela_coordenador.html"
             };
-        };
-    } catch {
-        alert('Erro!')
+        } else {
+            alert('CPF ou senha incorretos! Tente novamente!')
+        }
+    } catch (erro) {
+        console.error('Erro ao carregar usuários!', erro)
     }
 }

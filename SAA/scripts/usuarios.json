@@ -1,3 +1,5 @@
 [
-    {"cpf": "11111111100", "senha": "12345678", "tipo": "aluno"}
+    {"cpf": "11111111100", "senha": "12345678", "tipo": "aluno"},
+    {"cpf": "22222222200", "senha": "12345678", "tipo": "professor"},
+    {"cpf": "33333333300", "senha": "12345678", "tipo": "coordenador"}
 ]
