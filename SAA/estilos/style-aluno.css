@@ -20,7 +20,7 @@ main{
     display: grid;
     grid-template-rows: 15% 1fr 15%;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 .container{
@@ -49,6 +49,7 @@ main{
     margin: 10px;
     border-radius: 6px;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 #agendar:hover{
@@ -67,6 +68,7 @@ main{
     margin: 10px;
     border-radius: 6px;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 #ajustar:hover{
@@ -86,6 +88,7 @@ main{
     margin: 10px;
     border-radius: 6px;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 #cancelar:hover{
