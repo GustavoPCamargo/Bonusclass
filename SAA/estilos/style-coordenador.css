@@ -9,10 +9,7 @@
 }
 
 main {
-    padding: 40px 20px;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -24,7 +21,7 @@ main {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;  
     align-items: center;
-    width: 100%;
+    width: 65%;
 }
 
 .info-painel h1 {
@@ -44,8 +41,6 @@ main {
 }
 
 .btn-enviar {
-    grid-column: 2;
-    grid-row: 1 / 3;
     background-color: var(--cor-destaque);
     color: white;
     border: none;
@@ -75,22 +70,28 @@ main {
 }
 
 
-.menu-tabelas button {
+.menu-tabelas a {
     flex: 1;
     padding: 12px;
     border: none;
     background: transparent;
-    color: #666;
+    color: var(--cor-texto-destaque);
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
+    text-decoration: none;
     border-radius: 6px;
+    transition: 0.5s;
 }
 
-#btn-agendamento:hover, #btn-professores:hover, #btn-salas:hover{
-    background-color: #8080805d;
-    transition: 0.3s;
+.menu-tabelas a:hover{
+    background-color: var(--cor-destaque);
 }
+
+iframe{
+    width: 60%;
+    height: 100%;
+}
+
 
 .area-tabela {
     background-color: white;

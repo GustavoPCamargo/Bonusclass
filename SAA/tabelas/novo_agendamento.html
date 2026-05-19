@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonus Class</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    :root{
+    --cor-principal:  rgb(243, 247, 244);
+    --cor-destaque: rgb(55, 172, 99);
+    --cor-texto: rgb(0, 0, 0);
+    --cor-texto-destaque: rgb(46, 46, 46);
+    --card: rgb(255, 255, 255);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-text h2{
+      font-size:24px;
+    }
+
+    .logo-text p{
+      color:gray;
+      font-size:14px;
+    }
+
+    .user{
+      font-size:18px;
+    }
+
+    .welcome{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .welcome h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .welcome p{
+      color:#666;
+    }
+
+    /* CARD */
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      border:1px solid #ddd;
+    }
+
+    .card h2{
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#666;
+      margin-bottom:30px;
+    }
+
+    .row{
+      display:flex;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
+    .input-group{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+
+    label{
+      margin-bottom:8px;
+      font-weight:bold;
+    }
+
+    input, select{
+      height:45px;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:16px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:10px;
+      margin-top:20px;
+    }
+
+    .btn-primary{
+      flex:1;
+      height:45px;
+      border:none;
+      background: var(--cor-destaque);
+      color:white;
+      font-size:16px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    .btn-secondary{
+      width:150%;
+      height: 100%;
+      border:1px solid #ccc;
+      background:white;
+      border-radius:6px;
+    }
+
+    .btn-secondary:hover{
+        color: white;
+        background-color: var(--cor-destaque);
+        cursor: pointer;
+        transition: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>Novo agendamento</h2>
+      <p>Preencha os dados abaixo para agendar sua aula.</p>
+
+      <div class="row">
+
+        <div class="input-group">
+          <label>Idioma</label>
+
+          <select>
+            <option>Inglês</option>
+            <option>Espanhol</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Tema da aula</label>
+
+          <input type="text" value="Verbo to be">
+        </div>
+
+        <div class="input-group">
+          <label>Horário</label>
+
+          <select>
+            <option>10/04 - 11h00</option>
+            <option>10/04 - 14h00</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="input-group">
+        <label>Livro</label>
+
+        <select>
+          <option>English File A2</option>
+          <option>English File B1</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button class="btn-primary">
+          Agendar Aula
+        </button>
+
+        <a href="aluno.html">
+            <button class="btn-secondary">
+              Voltar
+            </button>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

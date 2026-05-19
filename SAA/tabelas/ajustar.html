@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ajustar Aula</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+.container{
+  width:100%;
+}
+
+.card{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:8px;
+  width:100%;
+  max-width:900px;
+}
+
+.content{
+  padding:20px;
+}
+
+.title{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.description{
+  color:#777;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.row{
+  display:flex;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.input-group{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+label{
+  font-size:14px;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+
+input,
+select{
+  height:42px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:10px;
+  font-size:14px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn-primary{
+  flex:1;
+  height:42px;
+  border:none;
+  border-radius:6px;
+  background:#22c55e;
+  color:white;
+  cursor:pointer;
+}
+
+.btn-secondary{
+  width:100px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  background:white;
+  cursor:pointer;
+}
+
+@media(max-width:700px){
+
+  .row{
+    flex-direction:column;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="content">
+
+      <h2 class="title">Alterar Agendamento</h2>
+
+      <p class="description">
+        Preencha os dados abaixo para alterar sua aula.
+      </p>
+
+      <div class="row">
+
+        <div class="input-group">
+          <label>Idioma</label>
+
+          <select>
+            <option>Inglês</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Tema da aula</label>
+
+          <input type="text" value="Verbo to be">
+        </div>
+
+        <div class="input-group">
+          <label>Horário</label>
+
+          <select>
+            <option>10/04 - 11h00</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="input-group">
+        <label>Livro</label>
+
+        <select>
+          <option>English File A2</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+
+        <button class="btn-primary">
+          Salvar Alteração
+        </button>
+
+        <button class="btn-secondary">
+          Voltar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

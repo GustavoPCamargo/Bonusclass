@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cancelar Aula</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+.container{
+  width:100%;
+}
+
+.card{
+  background:white;
+  border:1px solid #ddd;
+  border-radius:8px;
+  width:100%;
+  max-width:700px;
+}
+
+.content{
+  padding:20px;
+}
+
+.title{
+  color:#ef4444;
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.description{
+  color:#777;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.item span{
+  display:block;
+  color:#888;
+  font-size:13px;
+  margin-bottom:4px;
+}
+
+.item strong{
+  font-size:15px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+}
+
+.btn-danger{
+  flex:1;
+  height:42px;
+  border:none;
+  border-radius:6px;
+  background:#ef4444;
+  color:white;
+  cursor:pointer;
+}
+
+a{
+    display: block;
+}
+
+.btn-secondary{
+  flex:1;
+  height:42px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  background:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+
+    <div class="content">
+
+      <h2 class="title">Confirmar cancelamento</h2>
+
+      <p class="description">
+        Você está prestes a cancelar sua aula agendada.
+      </p>
+
+      <div class="info">
+
+        <div class="item">
+          <span>Idioma</span>
+          <strong>Inglês</strong>
+        </div>
+
+        <div class="item">
+          <span>Horário</span>
+          <strong>11:00</strong>
+        </div>
+
+        <div class="item">
+          <span>Livro</span>
+          <strong>English File A2</strong>
+        </div>
+
+        <div class="item">
+          <span>Sala</span>
+          <strong>Sala 1</strong>
+        </div>
+
+        <div class="item">
+          <span>Tema</span>
+          <strong>Verbo to be</strong>
+        </div>
+
+      </div>
+
+      <div class="buttons">
+        <button class="btn-danger">
+          Confirmar cancelamento
+        </button>
+
+        <a href="aluno.html">
+            <button class="btn-secondary">
+              Voltar
+            </button>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
