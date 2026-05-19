@@ -14,8 +14,16 @@
   font-family:Arial, sans-serif;
 }
 
+:root{
+    --cor-principal:  rgb(243, 247, 244);
+    --cor-destaque: rgb(55, 172, 99);
+    --cor-texto: rgb(0, 0, 0);
+    --cor-texto-destaque: rgb(46, 46, 46);
+    --card: rgb(255, 255, 255);
+    }
+
 body{
-  background:#f5f5f5;
+  background:#f5f5f500;
 }
 
 .container{
@@ -27,7 +35,6 @@ body{
   border:1px solid #ddd;
   border-radius:8px;
   width:100%;
-  max-width:900px;
 }
 
 .content{
@@ -89,12 +96,19 @@ select{
 }
 
 .btn-secondary{
-  width:100px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  background:white;
-  cursor:pointer;
-}
+      width:150%;
+      height: 100%;
+      border:1px solid #ccc;
+      background:white;
+      border-radius:6px;
+    }
+
+    .btn-secondary:hover{
+        color: white;
+        background-color: var(--cor-destaque);
+        cursor: pointer;
+        transition: 0.5s;
+    }
 
 @media(max-width:700px){
 
@@ -160,9 +174,11 @@ select{
           Salvar Alteração
         </button>
 
-        <button class="btn-secondary">
-          Voltar
-        </button>
+        <a href="aluno.html">
+          <button class="btn-secondary">
+            Voltar
+          </button>
+        </a>
 
       </div>
 
