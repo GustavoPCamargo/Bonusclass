@@ -9,7 +9,10 @@
 }
 
 main {
-    margin-top: 50px;
+    padding: 40px 20px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -20,8 +23,8 @@ main {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;  
-    align-items: center;
-    width: 65%;
+    align-items: start;
+    width: 100%;
 }
 
 .info-painel h1 {
@@ -88,7 +91,7 @@ main {
 }
 
 iframe{
-    width: 60%;
+    width: 100%;
     height: 100%;
 }
 
@@ -131,3 +134,4 @@ td {
     font-size: 14px;
     color: #333;
 }
+
