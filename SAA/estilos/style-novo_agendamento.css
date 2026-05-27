@@ -1,0 +1,108 @@
+/* Estilos específicos para a página Novo Agendamento */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-text h2{
+  font-size:24px;
+}
+
+.logo-text p{
+  color:gray;
+  font-size:14px;
+}
+
+.user{
+  font-size:18px;
+}
+
+.welcome{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.welcome h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.welcome p{
+  color:#666;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+.card h2{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#666;
+  margin-bottom:30px;
+}
+
+.row{
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.input-group{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+label{
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+input, select{
+  height:45px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:16px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn-primary{
+  flex:1;
+  height:45px;
+  border:none;
+  background: var(--cor-destaque);
+  color:white;
+  font-size:16px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.btn-secondary{
+  width:150%;
+  height: 100%;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:6px;
+}
+
+.btn-secondary:hover{
+    color: white;
+    background-color: var(--cor-destaque);
+    cursor: pointer;
+    transition: 0.5s;
+}
