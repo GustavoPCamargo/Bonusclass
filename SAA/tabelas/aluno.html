@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Painel do Aluno</title>
 </head>
 <style>
 *{
@@ -67,7 +67,6 @@
     background-color: yellow;
     cursor: pointer;
     transition: 0.5s;
-
 }
 
 #cancelar{
@@ -88,17 +87,119 @@
     cursor: pointer;
     transition: 0.5s;
 }
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+    pointer-events: none;
+}
+
+a.desabilitado {
+    pointer-events: none;
+}
+
+#aviso {
+    color: #888;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+#card-agendamento {
+    display: none;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#card-agendamento h4 {
+    color: #166534;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.info-item span {
+    display: block;
+    color: #888;
+    font-size: 12px;
+}
+
+.info-item strong {
+    font-size: 14px;
+    color: #222;
+}
 </style>
 <body>
     <div class="container">
-                <h4>O que você deseja fazer?</h4>
-                <p>Escolha uma ação para sua aula bônus.</p>
-                <div class="opçoes">
-                    <a href="novo_agendamento.html"><button id="agendar">Agendar aula</button></a>
-                    <a href="ajustar.html"><button id="ajustar">Ajustar aula</button></a>
-                    <a href="cancelar.html"><button id="cancelar">Cancelar aula</button></a>
+        <h4>O que você deseja fazer?</h4>
+        <p>Escolha uma ação para sua aula bônus.</p>
+
+        <div id="card-agendamento">
+            <h4>📅 Sua aula agendada:</h4>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span>Idioma</span>
+                    <strong id="info-idioma">—</strong>
                 </div>
-                <p>Como você ainda não tem aula agendada, as opções de alterar e cancelar estão indisponíveis.</p>
+                <div class="info-item">
+                    <span>Horário</span>
+                    <strong id="info-horario">—</strong>
+                </div>
+                <div class="info-item">
+                    <span>Livro</span>
+                    <strong id="info-livro">—</strong>
+                </div>
+                <div class="info-item">
+                    <span>Tema</span>
+                    <strong id="info-tema">—</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="opcoes">
+            <a id="link-agendar" href="novo_agendamento.html">
+                <button id="agendar">Agendar aula</button>
+            </a>
+            <a id="link-ajustar" href="ajustar.html">
+                <button id="ajustar">Ajustar aula</button>
+            </a>
+            <a id="link-cancelar" href="cancelar.html">
+                <button id="cancelar">Cancelar aula</button>
+            </a>
+        </div>
+
+        <p id="aviso"></p>
     </div>
+
+    <script src="../scripts/agendamento.js"></script>
+    <script>
+        const agendamento = getAgendamento();
+
+        if (agendamento) {
+            document.getElementById("card-agendamento").style.display = "block";
+            document.getElementById("info-idioma").textContent  = agendamento.idioma;
+            document.getElementById("info-horario").textContent = agendamento.horario;
+            document.getElementById("info-livro").textContent   = agendamento.livro;
+            document.getElementById("info-tema").textContent    = agendamento.tema;
+
+            document.getElementById("agendar").disabled = true;
+            document.getElementById("link-agendar").classList.add("desabilitado");
+            document.getElementById("aviso").textContent = "Você já possui uma aula agendada. Ajuste ou cancele antes de criar um novo agendamento.";
+        } else {
+            document.getElementById("ajustar").disabled  = true;
+            document.getElementById("cancelar").disabled = true;
+            document.getElementById("link-ajustar").classList.add("desabilitado");
+            document.getElementById("link-cancelar").classList.add("desabilitado");
+            document.getElementById("aviso").textContent = "Como você ainda não tem aula agendada, as opções de ajustar e cancelar estão indisponíveis.";
+        }
+    </script>
 </body>
 </html>

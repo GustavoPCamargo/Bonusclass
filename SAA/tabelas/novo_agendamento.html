@@ -14,47 +14,13 @@
     }
 
     :root{
-    --cor-principal:  rgb(243, 247, 244);
-    --cor-destaque: rgb(55, 172, 99);
-    --cor-texto: rgb(0, 0, 0);
-    --cor-texto-destaque: rgb(46, 46, 46);
-    --card: rgb(255, 255, 255);
+      --cor-principal:  rgb(243, 247, 244);
+      --cor-destaque: rgb(55, 172, 99);
+      --cor-texto: rgb(0, 0, 0);
+      --cor-texto-destaque: rgb(46, 46, 46);
+      --card: rgb(255, 255, 255);
     }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .logo-text h2{
-      font-size:24px;
-    }
-
-    .logo-text p{
-      color:gray;
-      font-size:14px;
-    }
-
-    .user{
-      font-size:18px;
-    }
-
-    .welcome{
-      text-align:center;
-      margin-bottom:30px;
-    }
-
-    .welcome h1{
-      font-size:42px;
-      margin-bottom:10px;
-    }
-
-    .welcome p{
-      color:#666;
-    }
-
-    /* CARD */
     .card{
       background:white;
       padding:30px;
@@ -113,6 +79,11 @@
       cursor:pointer;
     }
 
+    .btn-primary:hover{
+      background: rgb(39, 140, 76);
+      transition: 0.3s;
+    }
+
     .btn-secondary{
       width:150%;
       height: 100%;
@@ -127,6 +98,10 @@
         cursor: pointer;
         transition: 0.5s;
     }
+
+    @media(max-width:700px){
+      .row{ flex-direction:column; }
+    }
   </style>
 </head>
 
@@ -137,11 +112,9 @@
       <p>Preencha os dados abaixo para agendar sua aula.</p>
 
       <div class="row">
-
         <div class="input-group">
           <label>Idioma</label>
-
-          <select>
+          <select id="idioma">
             <option>Inglês</option>
             <option>Espanhol</option>
           </select>
@@ -149,45 +122,61 @@
 
         <div class="input-group">
           <label>Tema da aula</label>
-
-          <input type="text" value="Verbo to be">
+          <input type="text" id="tema" placeholder="Ex: Verbo to be">
         </div>
 
         <div class="input-group">
           <label>Horário</label>
-
-          <select>
+          <select id="horario">
             <option>10/04 - 11h00</option>
             <option>10/04 - 14h00</option>
           </select>
         </div>
-
       </div>
 
       <div class="input-group">
         <label>Livro</label>
-
-        <select>
+        <select id="livro">
           <option>English File A2</option>
           <option>English File B1</option>
+          <option>Aula Internacional 2</option>
         </select>
       </div>
 
       <div class="buttons">
-        <button class="btn-primary">
+        <button class="btn-primary" onclick="agendar()">
           Agendar Aula
         </button>
-
         <a href="aluno.html">
-            <button class="btn-secondary">
-              Voltar
-            </button>
+            <button class="btn-secondary">Voltar</button>
         </a>
       </div>
 
     </div>
-
   </div>
 
+  <script src="../scripts/agendamento.js"></script>
+  <script>
+    function agendar() {
+      const tema = document.getElementById("tema").value.trim();
+
+      if (!tema) {
+        alert("Por favor, informe o tema da aula.");
+        return;
+      }
+
+      const dados = {
+        idioma:  document.getElementById("idioma").value,
+        tema:    tema,
+        horario: document.getElementById("horario").value,
+        livro:   document.getElementById("livro").value,
+        sala:    "Sala 1"
+      };
+
+      salvarAgendamento(dados);
+      alert("Aula agendada com sucesso!");
+      window.parent.location.href = "../tela_aluno.html";
+    }
+  </script>
 </body>
 </html>

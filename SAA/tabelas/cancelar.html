@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cancelar Aula</title>
 
 <style>
@@ -20,12 +19,11 @@
     --cor-texto: rgb(0, 0, 0);
     --cor-texto-destaque: rgb(46, 46, 46);
     --card: rgb(255, 255, 255);
-    }
+}
 
 body{
   background:#f5f5f500;
 }
-
 
 .card{
   background:white;
@@ -82,6 +80,12 @@ body{
   background:#ef4444;
   color:white;
   cursor:pointer;
+  font-size:15px;
+}
+
+.btn-danger:hover{
+  background:#dc2626;
+  transition: 0.3s;
 }
 
 a{
@@ -89,82 +93,101 @@ a{
 }
 
 .btn-secondary{
-      width:150%;
-      height: 100%;
-      border:1px solid #ccc;
-      background:white;
-      border-radius:6px;
-    }
+  width:150%;
+  height: 100%;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:6px;
+}
 
-    .btn-secondary:hover{
-        color: white;
-        background-color: var(--cor-destaque);
-        cursor: pointer;
-        transition: 0.5s;
-    }
+.btn-secondary:hover{
+    color: white;
+    background-color: var(--cor-destaque);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#sem-agendamento {
+  display: none;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-
   <div class="card">
-
     <div class="content">
 
       <h2 class="title">Confirmar cancelamento</h2>
+      <p class="description">Você está prestes a cancelar sua aula agendada.</p>
 
-      <p class="description">
-        Você está prestes a cancelar sua aula agendada.
-      </p>
-
-      <div class="info">
-
+      <div class="info" id="info-agendamento">
         <div class="item">
           <span>Idioma</span>
-          <strong>Inglês</strong>
+          <strong id="c-idioma">—</strong>
         </div>
-
         <div class="item">
           <span>Horário</span>
-          <strong>11:00</strong>
+          <strong id="c-horario">—</strong>
         </div>
-
         <div class="item">
           <span>Livro</span>
-          <strong>English File A2</strong>
+          <strong id="c-livro">—</strong>
         </div>
-
         <div class="item">
           <span>Sala</span>
-          <strong>Sala 1</strong>
+          <strong id="c-sala">—</strong>
         </div>
-
         <div class="item">
           <span>Tema</span>
-          <strong>Verbo to be</strong>
+          <strong id="c-tema">—</strong>
         </div>
-
       </div>
 
+      <p id="sem-agendamento">Você não possui nenhuma aula agendada para cancelar.</p>
+
       <div class="buttons">
-        <button class="btn-danger">
+        <button class="btn-danger" id="btn-confirmar" onclick="confirmarCancelamento()">
           Confirmar cancelamento
         </button>
-
         <a href="aluno.html">
-            <button class="btn-secondary">
-              Voltar
-            </button>
+            <button class="btn-secondary">Voltar</button>
         </a>
       </div>
 
     </div>
-
   </div>
-
 </div>
+
+<script src="../scripts/agendamento.js"></script>
+<script>
+  const agendamento = getAgendamento();
+
+  if (agendamento) {
+    document.getElementById("c-idioma").textContent  = agendamento.idioma;
+    document.getElementById("c-horario").textContent = agendamento.horario;
+    document.getElementById("c-livro").textContent   = agendamento.livro;
+    document.getElementById("c-sala").textContent    = agendamento.sala || "Sala 1";
+    document.getElementById("c-tema").textContent    = agendamento.tema;
+  } else {
+    document.getElementById("info-agendamento").style.display = "none";
+    document.getElementById("btn-confirmar").style.display    = "none";
+    document.getElementById("sem-agendamento").style.display  = "block";
+  }
+
+  function confirmarCancelamento() {
+    const confirma = confirm("Tem certeza que deseja cancelar sua aula? Esta ação não pode ser desfeita.");
+    if (confirma) {
+      cancelarAgendamento();
+      alert("Aula cancelada com sucesso.");
+      window.parent.location.href = "../tela_aluno.html";
+    }
+  }
+</script>
 
 </body>
 </html>

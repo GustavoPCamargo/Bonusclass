@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ajustar Aula</title>
 
 <style>
@@ -20,7 +19,7 @@
     --cor-texto: rgb(0, 0, 0);
     --cor-texto-destaque: rgb(46, 46, 46);
     --card: rgb(255, 255, 255);
-    }
+}
 
 body{
   background:#f5f5f500;
@@ -93,29 +92,38 @@ select{
   background:#22c55e;
   color:white;
   cursor:pointer;
+  font-size:15px;
+}
+
+.btn-primary:hover{
+  background:#16a34a;
+  transition: 0.3s;
 }
 
 .btn-secondary{
-      width:150%;
-      height: 100%;
-      border:1px solid #ccc;
-      background:white;
-      border-radius:6px;
-    }
+  width:150%;
+  height: 100%;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:6px;
+}
 
-    .btn-secondary:hover{
-        color: white;
-        background-color: var(--cor-destaque);
-        cursor: pointer;
-        transition: 0.5s;
-    }
+.btn-secondary:hover{
+    color: white;
+    background-color: var(--cor-destaque);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#sem-agendamento {
+  display: none;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}
 
 @media(max-width:700px){
-
-  .row{
-    flex-direction:column;
-  }
-
+  .row{ flex-direction:column; }
 }
 </style>
 </head>
@@ -123,70 +131,110 @@ select{
 <body>
 
 <div class="container">
-
   <div class="card">
-
     <div class="content">
 
       <h2 class="title">Alterar Agendamento</h2>
+      <p class="description">Preencha os dados abaixo para alterar sua aula.</p>
 
-      <p class="description">
-        Preencha os dados abaixo para alterar sua aula.
-      </p>
+      <div id="form-ajuste">
 
-      <div class="row">
+        <div class="row">
+          <div class="input-group">
+            <label>Idioma</label>
+            <select id="a-idioma">
+              <option>Inglês</option>
+              <option>Espanhol</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Tema da aula</label>
+            <input type="text" id="a-tema" placeholder="Ex: Verbo to be">
+          </div>
+
+          <div class="input-group">
+            <label>Horário</label>
+            <select id="a-horario">
+              <option>10/04 - 11h00</option>
+              <option>10/04 - 14h00</option>
+            </select>
+          </div>
+        </div>
 
         <div class="input-group">
-          <label>Idioma</label>
-
-          <select>
-            <option>Inglês</option>
+          <label>Livro</label>
+          <select id="a-livro">
+            <option>English File A2</option>
+            <option>English File B1</option>
+            <option>Aula Internacional 2</option>
           </select>
         </div>
 
-        <div class="input-group">
-          <label>Tema da aula</label>
-
-          <input type="text" value="Verbo to be">
-        </div>
-
-        <div class="input-group">
-          <label>Horário</label>
-
-          <select>
-            <option>10/04 - 11h00</option>
-          </select>
-        </div>
-
-      </div>
-
-      <div class="input-group">
-        <label>Livro</label>
-
-        <select>
-          <option>English File A2</option>
-        </select>
-      </div>
-
-      <div class="buttons">
-
-        <button class="btn-primary">
-          Salvar Alteração
-        </button>
-
-        <a href="aluno.html">
-          <button class="btn-secondary">
-            Voltar
+        <div class="buttons">
+          <button class="btn-primary" onclick="salvarAlteracao()">
+            Salvar Alteração
           </button>
-        </a>
+          <a href="aluno.html">
+            <button class="btn-secondary">Voltar</button>
+          </a>
+        </div>
 
+      </div>
+
+      <div id="sem-agendamento">
+        <p>Você não possui nenhuma aula agendada para ajustar.</p>
+        <a href="aluno.html" style="margin-top:12px; display:inline-block; color:#22c55e;">← Voltar</a>
       </div>
 
     </div>
-
   </div>
-
 </div>
+
+<script src="../scripts/agendamento.js"></script>
+<script>
+  const agendamento = getAgendamento();
+
+  if (agendamento) {
+    setarOpcao("a-idioma",  agendamento.idioma);
+    setarOpcao("a-horario", agendamento.horario);
+    setarOpcao("a-livro",   agendamento.livro);
+    document.getElementById("a-tema").value = agendamento.tema;
+  } else {
+    document.getElementById("form-ajuste").style.display     = "none";
+    document.getElementById("sem-agendamento").style.display = "block";
+  }
+
+  function setarOpcao(idSelect, valor) {
+    const select = document.getElementById(idSelect);
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].text === valor) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+  }
+
+  function salvarAlteracao() {
+    const tema = document.getElementById("a-tema").value.trim();
+    if (!tema) {
+      alert("Por favor, informe o tema da aula.");
+      return;
+    }
+
+    const dadosAtualizados = {
+      idioma:  document.getElementById("a-idioma").value,
+      tema:    tema,
+      horario: document.getElementById("a-horario").value,
+      livro:   document.getElementById("a-livro").value,
+      sala:    agendamento.sala || "Sala 1"
+    };
+
+    salvarAgendamento(dadosAtualizados);
+    alert("Agendamento atualizado com sucesso!");
+    window.parent.location.href = "../tela_aluno.html";
+  }
+</script>
 
 </body>
 </html>
