@@ -1,4 +1,9 @@
 const selectHorario = document.getElementById('horario');
+const selectHorarioLotado = document.getElementById('horario_lotado');
+const idiomaPrincipal = document.getElementById('idioma');
+const idiomaAlerta = document.getElementById('idioma_alerta');
+const btnAtivarAlerta = document.getElementById('ativar_alerta');
+const containerNotificacoes = document.getElementById('notificacoes');
 
 function obterDataProximaSexta() {
   const hoje = new Date();
@@ -60,11 +65,97 @@ function gerarHorarios(inicio, fim, intervaloMinutos, pausas) {
   return horarios;
 }
 
-const horariosDisponiveis = gerarHorarios('09:30', '16:00', 30, [['12:00', '14:00']]);
+const todosHorarios = gerarHorarios('09:30', '16:00', 30, [['12:00', '14:00']]);
 
-horariosDisponiveis.forEach((horario) => {
+const indisponiveis = [];
+const disponiveis = [];
+
+const qtdIndisponiveis = Math.max(1, Math.floor(todosHorarios.length * 0.2));
+
+const copia = todosHorarios.slice();
+for (let i = copia.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [copia[i], copia[j]] = [copia[j], copia[i]];
+}
+
+const escolhidos = copia.slice(0, qtdIndisponiveis);
+
+todosHorarios.forEach(h => {
+  if (escolhidos.includes(h)) {
+    indisponiveis.push(h);
+  } else {
+    disponiveis.push(h);
+  }
+});
+
+function criarOptionParaHorario(horario, isDisponivel = true) {
   const option = document.createElement('option');
   option.value = `${dataAula} - ${horario}`;
-  option.textContent = `⏰ ${dataAula} - ${horario}`;
-  selectHorario.appendChild(option);
+  option.textContent = `${isDisponivel ? '⏰' : '⛔'} ${dataAula} - ${horario}`;
+  return option;
+}
+
+disponiveis.forEach(horario => {
+  selectHorario.appendChild(criarOptionParaHorario(horario, true));
 });
+
+if (selectHorarioLotado) {
+  indisponiveis.forEach(horario => {
+    selectHorarioLotado.appendChild(criarOptionParaHorario(horario, false));
+  });
+}
+
+if (idiomaPrincipal && idiomaAlerta) {
+  idiomaAlerta.innerHTML = idiomaPrincipal.innerHTML;
+}
+
+const notificacoes = [];
+
+function atualizarNotificacoes() {
+  if (!containerNotificacoes) return;
+  containerNotificacoes.innerHTML = '';
+  if (notificacoes.length === 0) {
+    containerNotificacoes.innerHTML = '';
+    return;
+  }
+
+  notificacoes.forEach((n, idx) => {
+    const div = document.createElement('div');
+    div.style.display = 'flex';
+    div.style.justifyContent = 'space-between';
+    div.style.alignItems = 'center';
+    div.style.padding = '6px 0';
+
+    const span = document.createElement('span');
+    span.textContent = n.text;
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Marcar como lido';
+    btn.className = 'btn-secondary';
+    btn.style.marginLeft = '12px';
+    btn.onclick = () => {
+      notificacoes.splice(idx, 1);
+      atualizarNotificacoes();
+    };
+
+    div.appendChild(span);
+    div.appendChild(btn);
+    containerNotificacoes.appendChild(div);
+  });
+}
+
+if (btnAtivarAlerta) {
+  btnAtivarAlerta.addEventListener('click', () => {
+    const idioma = (idiomaAlerta && idiomaAlerta.value) || (idiomaPrincipal && idiomaPrincipal.value) || '—';
+    const horario = selectHorarioLotado ? selectHorarioLotado.value : null;
+    if (!horario) {
+      alert('Selecione um horário lotado para ativar o alerta.');
+      return;
+    }
+
+    const texto = `Horário ${horario.replace(dataAula + ' - ', '')} em ${dataAula} ficou disponível para ${idioma}`;
+    notificacoes.push({ text: texto });
+    atualizarNotificacoes();
+  });
+}
+
