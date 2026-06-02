@@ -102,6 +102,20 @@
     @media(max-width:700px){
       .row{ flex-direction:column; }
     }
+
+    .alert-section { margin-top:60px; }
+    .alert-section .input-group.alert-button-group .btn-primary {
+      width: 100%;
+      flex: none;
+      height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      box-sizing: border-box;
+      line-height: normal;
+      font-size: 16px;
+    }
   </style>
 </head>
 
@@ -139,6 +153,32 @@
           <option>English File B1</option>
           <option>Aula Internacional 2</option>
         </select>
+      </div>
+
+      <div class="alert-section">
+        <p style="font-weight:bold; margin-bottom:8px;">Horário lotado? Ative o alerta de disponibilidade:</p>
+        <div class="row">
+          <div class="input-group">
+            <label>Idioma</label>
+            <select id="idioma_alerta">
+              <option>Inglês</option>
+              <option>Espanhol</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Horário lotado</label>
+            <select id="horario_lotado">
+            </select>
+          </div>
+
+          <div class="input-group alert-button-group">
+            <button id="ativar_alerta" class="btn-primary">Notificar quando abrir</button>
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px;">Notificações:</h3>
+        <div id="notificacoes" style="min-height:40px; color:#666; padding:8px; border:1px solid #eee; border-radius:6px; background:#fafafa;"></div>
       </div>
 
       <div class="buttons">
