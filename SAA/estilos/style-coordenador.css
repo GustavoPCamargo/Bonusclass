@@ -2,7 +2,7 @@
 
 :root{
     --cor-principal:  rgb(243, 247, 244);
-    --cor-destaque: rgb(55, 172, 99);
+    --cor-destaque: #28a745; 
     --cor-texto: rgb(0, 0, 0);
     --cor-texto-destaque: rgb(46, 46, 46);
     --card: rgb(255, 255, 255);
@@ -15,29 +15,24 @@ main {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 
-.info-painel {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;  
-    align-items: start;
+.header-painel {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
     width: 100%;
 }
 
-.info-painel h1 {
-    grid-column: 1;
-    grid-row: 1;
+.titulos h1 {
     font-size: 28px;
     margin: 0 0 5px 0;
     color: #111;
 }
 
-.info-painel p {
-    grid-column: 1;
-    grid-row: 2;
+.titulos p {
     color: #777;
     margin: 0;
     font-size: 14px;
@@ -56,82 +51,172 @@ main {
 }
 
 .btn-enviar:hover {
-    background-color: #2f855a;
+    background-color: #218838;
 }
 
-.menu-tabelas {
-    width: 100%;
-}
 
-.menu-tabelas nav {
-    background-color: var(--card);
+.abas-navegacao {
     display: flex;
-    padding: 6px;
+    background-color: rgb(248, 250, 248);
     border-radius: 8px;
+    padding: 5px;
     width: 100%;
-    box-sizing: border-box;
 }
 
-
-.menu-tabelas a {
-    flex: 1;
+.abas-navegacao a {
+    flex: 1; 
+    text-align: center;
     padding: 12px;
-    border: none;
-    background: transparent;
-    color: var(--cor-texto-destaque);
-    font-size: 14px;
-    font-weight: 600;
     text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
     border-radius: 6px;
-    transition: 0.5s;
-}
-
-.menu-tabelas a:hover{
-    background-color: var(--cor-destaque);
-}
-
-iframe{
-    width: 100%;
-    height: 100%;
+    transition: 0.3s;
 }
 
 
-.area-tabela {
+.abas-navegacao a:hover, .abas-navegacao a:focus {
     background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    color: #111;
+    font-weight: 600;
+}
+
+
+iframe {
+    width: 100%;
+    height: 500px;
+}
+
+
+.card-painel {
+    background-color: white;
+    border: 1px solid #eaeaea;
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    border: 1px solid #eaeaea;
     width: 100%;
     box-sizing: border-box;
 }
 
-.area-tabela h3 {
+.card-painel h3 {
     font-size: 16px;
     color: #222;
     margin-top: 0;
     margin-bottom: 24px;
 }
 
-table {
+
+.grid-relatorios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grafico-barras {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; 
+    height: 180px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.barra-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    justify-content: flex-end;
+    width: 30%;
+}
+
+.barra {
+    background-color: #1DA1F2;
     width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+    border-radius: 4px 4px 0 0;
 }
 
-th, td {
-    padding: 16px 10px;
+.lista-frequencia {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-frequencia li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #f1f3f5;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.badge-verde {
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* --- ID 09: FILTROS --- */
+.barra-filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.barra-filtros input, .barra-filtros select {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.barra-filtros select {
+    border-color: var(--cor-destaque);
+}
+
+.tabela-agendamentos {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.tabela-agendamentos td {
+    padding: 15px;
+    background-color: rgb(250, 252, 251);
+    border-top: 1px solid #f1f3f5;
     border-bottom: 1px solid #f1f3f5;
-}
-
-th {
-    color: #777;
-    font-weight: 500;
     font-size: 14px;
+    color: #444;
 }
 
-td {
-    font-size: 14px;
-    color: #333;
+.tabela-agendamentos td:first-child {
+    border-left: 1px solid #f1f3f5;
+    border-radius: 8px 0 0 8px;
 }
 
+.tabela-agendamentos td:last-child {
+    border-right: 1px solid #f1f3f5;
+    border-radius: 0 8px 8px 0;
+    text-align: right;
+}
+
+
+
+body.conteudo-iframe {
+    display: block; 
+    background-image: none; 
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: 100%;
+}
