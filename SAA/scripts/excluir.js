@@ -20,7 +20,7 @@ async function deletar(event) {
             return
         }
 
-        if(confirm(`Deseja mesmo excluir o CPF: ${cpf} do sistema?`)) {
+        if(confirm(`Deseja mesmo excluir o CPF: ${cpfInput} do sistema?`)) {
             let listaAtualizada = usuarios.filter(u => u.cpf !== cpf)
 
             localStorage.setItem("usuarios", JSON.stringify(listaAtualizada))
