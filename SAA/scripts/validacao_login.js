@@ -1,18 +1,3 @@
-// Máscara do cpf
-const inputCPF = document.getElementById("cpf")
-
-inputCPF.addEventListener("input", (e) =>{
-    let valor = e.target.value
-
-    valor = valor.replace(/\D/g, "");
-
-    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
-    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
-    valor = valor.replace(/(\d{3})(\d)/, "$1-$2");
-
-    e.target.value = valor;
-});
-
 // Funcionalidade de validação do login
 async function login(event) {
     event.preventDefault();
@@ -21,13 +6,19 @@ async function login(event) {
     let senha = document.getElementById('senha').value
 
     try {
-        const resposta = await fetch("scripts/usuarios.json")
-        const usuarios = await resposta.json();
+        let usuarios = JSON.parse(localStorage.getItem("usuarios"))
 
-        const usuario = usuarios.find(u =>
+        if (!usuarios) {
+            const resposta = await fetch("scripts/usuarios.json")
+            usuarios = await resposta.json()
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios))
+        }
+
+        const usuario = usuarios.find(u => 
             u.cpf === cpf && u.senha === senha
-        );
-        
+        )
+
         if (usuario) {
             if (usuario.tipo === "aluno") {
                 window.location.href = "tela_aluno.html"
