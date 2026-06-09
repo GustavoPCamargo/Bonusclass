@@ -2,13 +2,146 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../estilos/style.css">
-    <link rel="stylesheet" href="../estilos/style-coordenador.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .main-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        input, select {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 14px;
+            color: #555;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .btn-salvar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-salvar:hover{
+            cursor: pointer;
+            background-color: #23c549;
+            transition: 0.3s;
+        }
+
+        .btn-cancelar {
+            background-color: white;
+            color: #666;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .user-card {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-info h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .badges {
+            display: flex;
+            gap: 5px;
+        }
+        .badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background-color: #f0f0f0;
+            color: #666;
+        }
+        .badge.ativo {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-deletar {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
-<body class="conteudo-iframe">
-    <div class="card-painel">
-        <h3>Gerenciamento de Usuários</h3>
-        <p>Esta área está reservada para a listagem e controle de acessos dos usuários do sistema.</p>
+<body>
+
+    <div class="main-container">
+        <h2>Gerenciar Usuários</h2>
+
+        <form id="cadastroForm" onsubmit="cadastrar(event)">
+            <div class="form-grid">
+                <input type="text" id="cpf" maxlength="14" placeholder="CPF do Usuário" required>
+                <select id="tipoUser">
+                    <option value="aluno">Aluno</option> 
+                    <option value="professor">Professor(a)</option>
+                    <option value="coordenador">Coordenador</option>
+                </select>
+                <input type="password" id="senha" placeholder="Nova senha (opcional)" minlength="8">
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn-salvar">Cadastrar</button>
+                <button type="button" class="btn-cancelar" onclick="limparFormulario()">Cancelar</button>
+            </div>
+        </form>
+
+        <div class="user-list" id="listaUsuariosContainer">
+            </div>
     </div>
+<script src="../scripts/manipulacao_usuarios.js"></script>
+<script src="../scripts/mascara_cpf.js"></script>
 </body>
 </html>
