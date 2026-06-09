@@ -99,6 +99,17 @@
         transition: 0.5s;
     }
 
+    .input-group-alert-button-group{
+      display: flex;
+      justify-items: center;
+      align-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    #ativar_alerta{
+      padding: 10px;
+    }
+
     @media(max-width:700px){
       .row{ flex-direction:column; }
     }
@@ -172,7 +183,7 @@
             </select>
           </div>
 
-          <div class="input-group alert-button-group">
+          <div class="input-group-alert-button-group">
             <button id="ativar_alerta" class="btn-primary">Notificar quando abrir</button>
           </div>
         </div>
