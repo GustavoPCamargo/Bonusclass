@@ -12,8 +12,7 @@ Este projeto é um protótipo educativo — serve para testar interfaces e fluxo
 
 ## Como usar
 1. Baixe/clone o repositório.
-2. Abra `BonusClass/login.html` no navegador. Se a pasta ainda se chamar `SAA`, abra `SAA/login.html`.
-
+2. Abra `login.html` no navegador.
 Recomendado: rodar um servidor local para evitar restrições de arquivos:
 
 ```powershell
