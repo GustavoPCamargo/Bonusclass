@@ -133,6 +133,8 @@ function atualizarNotificacoes() {
     btn.textContent = 'Marcar como lido';
     btn.className = 'btn-secondary';
     btn.style.marginLeft = '12px';
+    btn.style.width = '150px';
+    btn.style.height = '38px';
     btn.onclick = () => {
       notificacoes.splice(idx, 1);
       atualizarNotificacoes();
